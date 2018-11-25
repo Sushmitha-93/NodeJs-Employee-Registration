@@ -2,6 +2,7 @@ let express = require('express')
 let bodyParser = require('body-parser')
 let mongodb = require('mongodb')
 let path = require('path')
+let pug = require('pug')
 
 //var jsdom = require("jsdom");
 //var JSDOM = jsdom.JSDOM;
@@ -78,12 +79,16 @@ myServer.post("/", function(req, res) {
                         console.log(data)
 
                         myServer.set('views', path.join(__dirname, 'views'));
-                        myServer.set('view engine', 'jade')
+                        myServer.set('view engine', 'pug');
 
+                        let compiledFunction = pug.compileFile('views/index.html');
+
+                        // Render a set of data        
 
                         res.render('index', {
-                            title: 'Hello World!'
-                        });
+                            data: data
+                        })
+
 
                         res.end();
                     })
