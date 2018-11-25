@@ -1,0 +1,39 @@
+html
+ title pug to html
+ head
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ body 
+  br
+  div.container   
+   -//var emps=[{"_id":"5bf01a8ceb726c20e7ce2314","empno":1,"name":"Sushmitha","company":"Accenture"},{"_id":"5bf01acaeb726c20e7ce2315","empno":2,"name":"Sush","company":"Accenture"},{"_id":"5bf01adbeb726c20e7ce2316","empno":3,"name":"aishwarya","company":"Accenture"},{"_id":"5bf02253c9957c1b5c0b66a9","empno":4,"name":"Sushrutha","company":"CTS"},{"_id":"5bf11a2a8b3ba02968c5c625","empno":5,"name":"Sushmitha D.T","company":"Google"},{"_id":"5bf12156b3e4f61accc9387b","empno":6,"name":"Sushmitha D T","company":"Google"},{"_id":"5bf121efb3e4f61accc9387c","empno":7,"name":"Susan","company":"IBM"},{"_id":"5bf1221c1ffd0e22884dedd3","empno":8,"name":"Anita","company":"Microsoft"},{"_id":"5bf122f61901fb0ff867eebe","empno":8,"name":"Preeti","company":"Acc"},{"_id":"5bf123ac91b0fa14b40b3217","empno":9,"name":"abcd","company":"abcde"},{"_id":"5bf1242c91b0fa14b40b3218","empno":10,"name":"Ron","company":"TCS"},{"_id":"5bf1255891b0fa14b40b3219","empno":11,"name":"Aishwarya","company":"TCS"},{"_id":"5bf191e6a2995433ac2626cb","empno":12,"name":"SHYAM","company":"IBM"}]
+   -emps=data
+   -var len=emps.length
+   h1 Employee Information: #{len}
+
+   -//Creating Table Headers
+    -var col=[]
+    table.table.table-bordered.table-striped.table-hover
+     tr
+     thead
+      -for(var i=0;i<len;i++)
+       -for(var key in emps[i])
+        -if (col.indexOf(key) === -1)
+         -col.push(key)
+          th=key
+     tbody
+      -for(var i=0;i<len;i++)
+       tr
+        each d in emps[i]
+         td=d
+  
+ 
+  
+
+ 
+ -//each key in emps[0]
+ -//  h4=key
+   
+
+  
