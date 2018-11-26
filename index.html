@@ -1,30 +1,69 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+        'use strict';
+
+        window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
 
 <body>
     <div class="container">
 
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
+        <div class="row" style="margin-top: 50px">
+            <div class="col-md-6 col-md-offset-6">
+                <div class="card">
+                    <div class="card-header">
                         <h1>Employee Registration</h1>
                     </div>
-                    <div class="panel-body">
-                        <form action="http://localhost:8080" method="POST">
+                    <div class="card-body">
+
+                        <form class="needs-validation" novalidate action="http://localhost:8080" method="POST">
                             <div class="form-group">
-                                <input type="text" name="empno" class="form-control" placeholder="Employee Number">
+                                <input type="text" name="empno" required id="validationCustom01" class="form-control" placeholder="Employee Number">
+                                <div class="invalid-feedback">
+                                    Please enter employee number
+                                </div>
+                                <div class="valid-feedback">
+                                    Looks Good!
+                                </div>
                             </div>
                             <div class="form-group">
-                                <input type="text" name="name" class="form-control" placeholder="Name">
+                                <input type="text" name="name" required id="validationCustom02" class="form-control" placeholder="Name">
+                                <div class="invalid-feedback">
+                                    Plase enter employee name
+                                </div>
                             </div>
                             <div class="form-group">
-                                <input type="text" name="company" class="form-control" placeholder="Company">
+                                <input type="text" name="company" required id="validationCustom03" class="form-control" placeholder="Company">
+                                <div class="invalid-feedback">
+                                    Please enter Company
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-4">
@@ -34,7 +73,14 @@
                                     <input type="submit" value="Update" name="action" class="btn btn-lg  btn-primary btn-block">
                                 </div>
                                 <div class="col-md-4">
-                                    <input type="submit" value="Display" name="action" class="btn btn-lg  btn-primary btn-block">
+                                    <input type="submit" value="Delete" name="action" class="btn btn-lg  btn-primary btn-block">
+                                </div>
+                            </div>
+                        </form>
+                        <form action="http://localhost:8080" method="POST">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="submit" id="display" value="Display All" name="action" class="btn btn-lg  btn-primary btn-block">
                                 </div>
                             </div>
                         </form>
