@@ -7,6 +7,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="validation/validation.js"></script>
 </head>
 
 <script>
@@ -45,7 +46,7 @@
 
                         <form class="needs-validation" novalidate action="http://localhost:8080" method="POST">
                             <div class="form-group">
-                                <input type="text" name="empno" required id="validationCustom01" class="form-control" placeholder="Employee Number">
+                                <input type="text" required id="validationCustom01" class="form-control" placeholder="Employee Number">
                                 <div class="invalid-feedback">
                                     Please enter employee number
                                 </div>
@@ -54,13 +55,13 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="text" name="name" required id="validationCustom02" class="form-control" placeholder="Name">
+                                <input type="text" id="name" name="name" required id="validationCustom02" class="form-control" placeholder="Name">
                                 <div class="invalid-feedback">
                                     Plase enter employee name
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="text" name="company" required id="validationCustom03" class="form-control" placeholder="Company">
+                                <input type="text" id="company" name="company" required id="validationCustom03" class="form-control" placeholder="Company">
                                 <div class="invalid-feedback">
                                     Please enter Company
                                 </div>
@@ -73,7 +74,7 @@
                                     <input type="submit" value="Update" name="action" class="btn btn-lg  btn-primary btn-block">
                                 </div>
                                 <div class="col-md-4">
-                                    <input type="submit" value="Delete" name="action" class="btn btn-lg  btn-primary btn-block">
+                                    <input type="submit" id="Delete" value="Delete" name="action" class="btn btn-lg  btn-primary btn-block" onclick="delValidation()" onblur="onBlur()">
                                 </div>
                             </div>
                         </form>
